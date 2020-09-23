@@ -1,0 +1,27 @@
+{
+  "name": "rss-feeder",
+  "version": "0.0.0",
+  "description": "A handsome RSS feed for your home page",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DigitalNaut/rss-feeder.git"
+  },
+  "keywords": [
+    "rss",
+    "feed"
+  ],
+  "author": "DigitalNaut",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DigitalNaut/rss-feeder/issues"
+  },
+  "homepage": "https://github.com/DigitalNaut/rss-feeder#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
