@@ -2,9 +2,11 @@
   "name": "rss-feeder",
   "version": "0.0.0",
   "description": "A handsome RSS feed for your home page",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "test"
+    "build": "webpack --mode development",
+    "deploy": "webpack --mode production",
+    "deploy-ext": "web-ext build -i ./src ./webpack.config.js ./gitignore ./package-lock.json ./babel.config.json ./index-dev.html"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,17 @@
   },
   "homepage": "https://github.com/DigitalNaut/rss-feeder#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "babel-loader": "^8.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-react": "^7.10.4",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
   }
 }
