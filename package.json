@@ -4,7 +4,7 @@
   "description": "A handsome RSS feed for your home page",
   "main": "src/index.js",
   "scripts": {
-    "build": "webpack --mode development",
+    "build": "webpack --watch --mode development",
     "deploy": "webpack --mode production",
     "deploy-ext": "web-ext build -i ./src ./webpack.config.js ./gitignore ./package-lock.json ./babel.config.json ./index-dev.html"
   },
@@ -25,7 +25,11 @@
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
-    "babel-loader": "^8.1.0"
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.3.0",
+    "sass": "^1.26.11",
+    "sass-loader": "^10.0.2",
+    "style-loader": "^1.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",

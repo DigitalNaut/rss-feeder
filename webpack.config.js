@@ -3,6 +3,9 @@ const path = require("path");
 module.exports = {
   mode: "production",
   entry: "./src/index.js",
+  watchOptions: {
+    ignored: /node_modules/
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
@@ -16,6 +19,10 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      }
     ],
   },
 };
