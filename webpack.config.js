@@ -4,7 +4,7 @@ module.exports = {
   mode: "production",
   entry: "./src/index.js",
   watchOptions: {
-    ignored: /node_modules/
+    ignored: /node_modules/,
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -20,9 +20,24 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"]
-      }
+        test: /\.s?css$/,
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              importLoaders: 2,
+              // localIdentName: "[path][name]__[local]",
+            },
+          },
+          {
+            loader: "sass-loader",
+          },
+        ],
+      },
     ],
   },
 };

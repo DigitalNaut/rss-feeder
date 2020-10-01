@@ -1,9 +1,10 @@
+import style from "./Subscriptions.scss";
 import React from "react";
 
 class Subscriptions extends React.Component {
   render() {
     return (<>
-      <h1>Subscription</h1>
+      <h1 className={style.header}>Subscription</h1>
     </>);
   }
 }

@@ -4,13 +4,13 @@
   "version": "0.0.0",
   "description": "Adds a red border to all webpages matching mozilla.org.",
   "icons": {
-    "48": "icons/RSSF-48.png",
-    "96": "icons/RSSF-96.png"
+    "48": "public/RSSF-48.png",
+    "96": "public/RSSF-96.png"
   },
   "browser_action": {
     "default_icon": {
-      "19": "icons/RSSF-19.png",
-      "38": "icons/RSSF-38.png"
+      "19": "public/RSSF-19.png",
+      "38": "public/RSSF-38.png"
     },
     "default_title": "RSS Feeder"
   },
