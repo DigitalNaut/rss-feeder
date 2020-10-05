@@ -11,7 +11,6 @@ export class App extends React.Component {
         <Helmet>
           <title>RSS Feeder</title>
         </Helmet>
-        <h1>Hello world from React!</h1>
         <Feed />
         <Subscriptions />
       </>
