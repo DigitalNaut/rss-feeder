@@ -5,7 +5,7 @@ class Article extends React.Component {
   render() {
     return (
       <div className={style.article}>
-        <h2>{this.props.name}</h2>
+        <h2>{this.props.title}</h2>
         {this.props.children}
       </div>
     );

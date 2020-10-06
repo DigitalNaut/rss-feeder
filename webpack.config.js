@@ -29,7 +29,7 @@ module.exports = (env) => {
             {
               loader: "css-loader",
               options: {
-                sourceMap: env.isDevelopment,
+                sourceMap: Boolean(env.isDevelopment),
                 importLoaders: 1,
                 modules: {
                   localIdentName: "[path][name]__[local]",
