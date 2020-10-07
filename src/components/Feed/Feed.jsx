@@ -23,21 +23,28 @@ function Feed() {
   let [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    fetcher(MockRSS, (content) => {
-      setArticles(content);
-    });
+    fetcher(MockRSS)
+      .then((content) => {
+        let articles = content.items.map((article, index) => {
+          return (
+            <Article title={article.title} key={index}>
+              {article.content}
+            </Article>
+          );
+        });
+        console.log(articles);
+        setArticles(articles);
+      })
+      .catch((error) => {
+        console.log("Server responded with:", error.message);
+        setArticles(<p>Error retrieving articles!</p>);
+      });
   }, []);
 
   return (
     <div id="feed" className={style.feed}>
       <h1 className={style.header}>Feed</h1>
-      <div id="articlesList">
-        {articles.map((article, index) => (
-          <Article title={article.title} key={index}>
-            {article.content}
-          </Article>
-        ))}
-      </div>
+      <div className={style.articlesList}>{articles}</div>
     </div>
   );
 }
