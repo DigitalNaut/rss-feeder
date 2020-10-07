@@ -1,11 +1,11 @@
 import style from "./Subscriptions.scss";
-import React, { useEffect, useState } from "react";
+import * as React from "react";
 import data from "../../common/data.json";
 
 function Subscriptions(props) {
-  let [subscriptions, setSubscriptions] = useState([]);
+  let [subscriptions, setSubscriptions] = React.useState([]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     let subsList = data.sources.map((subscription, index) => {
       return (
         <SubLink

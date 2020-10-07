@@ -1,5 +1,5 @@
 import style from "./Feed.scss";
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import * as React from "react";
 
 import Article from "../Article/Article.jsx";
 import fetcher from "../../common/RSSFetcher.jsx";
@@ -15,9 +15,9 @@ import fetcher from "../../common/RSSFetcher.jsx";
 // title: "Lorem ipsum 2020-10-05T14:09:00Z"
 
 function Feed(props) {
-  let [articles, setArticles] = useState([]);
+  let [articles, setArticles] = React.useState([]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     console.log("something changed");
     if (props.rssUrl) {
       fetcher(props.rssUrl)
