@@ -1,3 +1,5 @@
+import style from "./App.scss"
+
 import * as React from "react";
 import { Helmet } from "react-helmet";
 
@@ -11,8 +13,8 @@ export class App extends React.Component {
         <Helmet>
           <title>RSS Feeder</title>
         </Helmet>
-        <Feed />
         <Subscriptions />
+        <Feed />
       </>
     );
   }

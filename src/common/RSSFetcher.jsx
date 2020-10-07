@@ -8,7 +8,7 @@ const fetcher = (sourceURL, callback) => {
   console.log("Fetching feed from:", sourceURL);
 
   parser.parseURL(CORS_PROXY + sourceURL, (error, feed) => {
-    if (error) throw error;
+    if (error) throw new Error(error);
 
     callback(feed.items);
   });

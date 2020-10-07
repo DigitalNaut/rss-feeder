@@ -1,4 +1,13 @@
 .article {
   color: white;
   background-color: orange;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  display: flex;
+}
+
+.article h3 {
+  padding: 0px;
+  margin: 5px;
 }

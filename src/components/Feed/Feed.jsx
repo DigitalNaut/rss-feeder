@@ -28,23 +28,14 @@ function Feed() {
     });
   }, []);
 
-  // useLayoutEffect(() => {
-  //   if (articles && articles.length) {
-  //     let articleContainer = document.getElementById("articlesList");
-
-  //     articles.forEach((article) => {
-  //       let element = <Article title={article.title}>{article.content}</Article>;
-  //       articleContainer.append(element);
-  //     });
-  //   }
-  // }, [articles]);
-
   return (
     <div id="feed" className={style.feed}>
       <h1 className={style.header}>Feed</h1>
       <div id="articlesList">
         {articles.map((article, index) => (
-          <Article title={article.title} key={index}>{article.content}</Article>
+          <Article title={article.title} key={index}>
+            {article.content}
+          </Article>
         ))}
       </div>
     </div>

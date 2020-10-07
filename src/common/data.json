@@ -1,0 +1,16 @@
+{
+  "sources": [
+    {
+      "url": "http://rss.sciam.com/ScientificAmerican-Global?format=xml",
+      "identifier": { "title": "", "custom": false }
+    },
+    {
+      "url": "http://feeds.nature.com/video/rss/current?format=xml",
+      "identifier": { "title": "", "custom": false }
+    },
+    {
+      "url": "https://lorem-rss.herokuapp.com/feed",
+      "identifier": { "title": "", "custom": false }
+    }
+  ]
+}
