@@ -2,15 +2,15 @@
   "sources": [
     {
       "url": "http://rss.sciam.com/ScientificAmerican-Global?format=xml",
-      "identifier": { "title": "", "custom": false }
+      "identifier": { "title": "Scientific American", "custom": true }
     },
     {
       "url": "http://feeds.nature.com/video/rss/current?format=xml",
-      "identifier": { "title": "", "custom": false }
+      "identifier": { "title": "Nature Video", "custom": true }
     },
     {
       "url": "https://lorem-rss.herokuapp.com/feed",
-      "identifier": { "title": "", "custom": false }
+      "identifier": { "title": "Lorem RSS", "custom": true }
     }
   ]
 }
