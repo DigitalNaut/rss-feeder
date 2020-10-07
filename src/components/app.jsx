@@ -1,4 +1,4 @@
-import style from "./App.scss"
+import style from "./App.scss";
 
 import * as React from "react";
 import { Helmet } from "react-helmet";
@@ -6,16 +6,20 @@ import { Helmet } from "react-helmet";
 import Feed from "./Feed/Feed.jsx";
 import Subscriptions from "./Subscriptions/Subscriptions.jsx";
 
-export class App extends React.Component {
-  render() {
-    return (
-      <>
-        <Helmet>
-          <title>RSS Feeder</title>
-        </Helmet>
-        <Subscriptions />
-        <Feed />
-      </>
-    );
+export function App() {
+  let [rssQuery, setRssQuery] = React.useState("");
+
+  function updateSubscriptionView (newQuery) {
+    setRssQuery(newQuery);
   }
+
+  return (
+    <>
+      <Helmet>
+        <title>RSS Feeder</title>
+      </Helmet>
+      <Subscriptions callback={updateSubscriptionView} />
+      <Feed rssUrl={rssQuery} />
+    </>
+  );
 }

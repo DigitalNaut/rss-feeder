@@ -2,7 +2,7 @@ import style from "./Subscriptions.scss";
 import React, { useEffect, useState } from "react";
 import data from "../../common/data.json";
 
-function Subscriptions() {
+function Subscriptions(props) {
   let [subscriptions, setSubscriptions] = useState([]);
 
   useEffect(() => {
@@ -11,11 +11,12 @@ function Subscriptions() {
         <SubLink
           key={index}
           title={subscription.identifier.title}
-          link={subscription.link}
+          link={subscription.url}
+          callback={props.callback}
         />
       );
     });
-    console.log(subsList);
+
     setSubscriptions(subsList);
   }, [data]);
 
@@ -27,15 +28,10 @@ function Subscriptions() {
   );
 }
 
-function handleClick(event) {
-  event.preventDefault();
-  console.log("Button clicked! ", link);
-}
-
 class SubLink extends React.Component {
   render() {
     return (
-      <a href="#" onClick={handleClick}>
+      <a href="#" onClick={(event)=>{event.preventDefault(), this.props.callback(this.props.link)}}>
         <h3>{this.props.title}</h3>
       </a>
     );
