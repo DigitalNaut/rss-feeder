@@ -1,9 +1,16 @@
 .feed {
   display: flex;
+  flex-direction: column;
   background-color: plum;
 }
 
 .header {
   color: white;
+  margin: 0px;
   width: 100%;
+  
+}
+
+.articlesList {
+  color: blue;
 }
