@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 
 import Feed from "./Feed/Feed.jsx";
 import Subscriptions from "./Subscriptions/Subscriptions.jsx";
+import userdata from "../common/userdata.json";
 
 export function App() {
   let [rssQuery, setRssQuery] = React.useState("");
@@ -18,7 +19,7 @@ export function App() {
       <Helmet>
         <title>RSS Feeder</title>
       </Helmet>
-      <Subscriptions callback={updateSubscriptionView} />
+      <Subscriptions userdata={userdata} callback={updateSubscriptionView} />
       <Feed rssUrl={rssQuery} />
     </div>
   );

@@ -1,12 +1,11 @@
 import style from "./Subscriptions.scss";
 import * as React from "react";
-import data from "../../common/data.json";
 
 function Subscriptions(props) {
   let [subscriptions, setSubscriptions] = React.useState([]);
 
   React.useEffect(() => {
-    let subsList = data.sources.map((subscription, index) => {
+    let subsList = props.userdata.sources.map((subscription, index) => {
       return (
         <SubLink
           key={index}
@@ -18,7 +17,7 @@ function Subscriptions(props) {
     });
 
     setSubscriptions(subsList);
-  }, [data]);
+  }, [props.userdata]);
 
   return (
     <div id="subscriptions" className={style.subscriptions}>
