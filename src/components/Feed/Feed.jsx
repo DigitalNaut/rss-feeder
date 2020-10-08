@@ -2,7 +2,7 @@ import style from "./Feed.scss";
 import * as React from "react";
 
 import Article from "../Article/Article.jsx";
-import fetcher from "../../common/RSSFetcher.jsx";
+import rssFetcher from "../../common/RSSFetcher.jsx";
 
 // content: "Qui id incididunt est excepteur."
 // contentSnippet: "Qui id incididunt est excepteur."
@@ -17,29 +17,29 @@ import fetcher from "../../common/RSSFetcher.jsx";
 function Feed(props) {
   let [articles, setArticles] = React.useState([]);
 
+  function createArticle(key, title, content) {
+    return (
+      <Article title={title} key={key}>
+        {content}
+      </Article>
+    );
+  }
+
   React.useEffect(() => {
-    console.log("something changed");
     if (props.rssUrl) {
-      fetcher(props.rssUrl)
+      rssFetcher(props.rssUrl)
         .then((content) => {
           let articles = content.items.map((article, index) => {
-            return (
-              <Article title={article.title} key={index}>
-                {article.content}
-              </Article>
-            );
+            return createArticle(index, article.title, article.contentSnippet);
           });
-          console.log(articles);
           setArticles(articles);
         })
+
         .catch((error) => {
           console.log("Server responded with:", error.message);
           setArticles(<p>Error retrieving articles!</p>);
         });
-    }
-    else{
-      setArticles(<p>No subscription selected!</p>);
-    }
+    } else setArticles(<p>No subscription selected!</p>);
   }, [props, props.rssUrl]);
 
   return (
