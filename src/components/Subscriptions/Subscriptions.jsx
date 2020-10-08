@@ -23,19 +23,22 @@ function Subscriptions(props) {
   return (
     <div id="subscriptions" className={style.subscriptions}>
       <h1 className={style.header}>Subscriptions</h1>
-      {subscriptions}
+      <div className={style.subslist}>{subscriptions}</div>
     </div>
   );
 }
 
-class SubLink extends React.Component {
-  render() {
-    return (
-      <a href="#" onClick={(event)=>{event.preventDefault(), this.props.callback(this.props.link)}}>
-        <h3>{this.props.title}</h3>
-      </a>
-    );
-  }
+function SubLink(props) {
+  return (
+    <button
+      className={style.subscriptionLink}
+      onClick={(event) => {
+        props.callback(props.link);
+      }}
+    >
+      {props.title}
+    </button>
+  );
 }
 
 export default Subscriptions;

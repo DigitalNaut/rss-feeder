@@ -1,7 +1,22 @@
 .subscriptions {
   background-color: green;
+  width: 30%;
+  height: inherit;
+  overflow-y: auto;
 }
 
 .header {
   color: white;
+  margin: 0px;
+}
+
+.subsList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.subscriptionLink {
+  margin: 0px;
+  border: 0px;
+  width: 100%;
 }
