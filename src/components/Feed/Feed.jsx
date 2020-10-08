@@ -19,45 +19,46 @@ import Loading from "../Loading/Loading.jsx";
  */
 
 function Feed(props) {
-  let [isLoadingArticles, setIsLoadingArticles] = React.useState(false);
-  let [articles, setArticles] = React.useState([]);
+  let [isLoading, setLoading] = React.useState(false);
+  let [content, setContent] = React.useState([]);
 
-  function createArticle(key, title, content) {
-    return (
-      <Article title={title} key={key}>
-        {content}
-      </Article>
-    );
+  function buildArticles(items) {
+    let builtItems = items.map((item, index) => {
+      return (
+        <Article title={item.title} key={index}>
+          {item.contentSnippet}
+        </Article>
+      );
+    });
+
+    return builtItems;
   }
 
   React.useEffect(() => {
     if (props.rssUrl) {
-      setIsLoadingArticles(true);
+      setLoading(true);
 
-      rssFetcher(props.rssUrl)
-        .then((content) => {
-          let articles = content.items.map((article, index) => {
-            return createArticle(index, article.title, article.contentSnippet);
-          });
-          setArticles(articles);
-          setIsLoadingArticles(false);
+      rssFetcher(props.rssUrl, true, 800)
+        .then(({ items }) => {
+          setContent(buildArticles(items));
+          setLoading(false);
         })
 
         .catch((error) => {
           console.log("Server responded with:", error.message);
           setArticles(<p>Error retrieving articles!</p>);
-          setIsLoadingArticles(false);
+          setLoading(false);
         });
-    } else setArticles(<p>No subscription selected!</p>);
+    } else setContent(<p>No subscription selected!</p>);
   }, [props.rssUrl]);
 
   return (
     <div id="feed" className={style.feed}>
       <div className={style.headerSection}>
-        <h1 className={style.header}>Feed</h1>
-        <Loading showComponent={isLoadingArticles} />
+        <h2 className={style.header}>Feed</h2>
+        <Loading showComponent={isLoading} />
       </div>
-      <div className={style.articlesList}>{!isLoadingArticles && articles}</div>
+      <div className={style.articlesList}>{!isLoading && content}</div>
     </div>
   );
 }
