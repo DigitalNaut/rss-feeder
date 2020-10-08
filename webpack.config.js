@@ -1,5 +1,7 @@
 const path = require("path");
 
+const isDevelopment = env.isDevelopment == 'true' ? true : false;
+
 module.exports = (env) => {
   return {
     mode: "production",
@@ -29,7 +31,7 @@ module.exports = (env) => {
             {
               loader: "css-loader",
               options: {
-                sourceMap: Boolean(env.isDevelopment),
+                sourceMap: isDevelopment,
                 importLoaders: 1,
                 modules: {
                   localIdentName: "[path][name]__[local]",
