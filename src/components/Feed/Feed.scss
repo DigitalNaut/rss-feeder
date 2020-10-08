@@ -1,10 +1,17 @@
 .feed {
-  display: flex;
-  flex-direction: column;
   background-color: plum;
   width: 70%;
   height: inherit;
+
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
+}
+
+.headerSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .header {

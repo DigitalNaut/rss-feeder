@@ -3,11 +3,15 @@
   width: 30%;
   height: inherit;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
   color: white;
   margin: 0px;
+
+  align-self: center;
 }
 
 .subsList {

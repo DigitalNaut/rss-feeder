@@ -46,7 +46,7 @@ function Feed(props) {
 
         .catch((error) => {
           console.log("Server responded with:", error.message);
-          setArticles(<p>Error retrieving articles!</p>);
+          setContent(<p>Error retrieving latest articles!</p>);
           setLoading(false);
         });
     } else setContent(<p>No subscription selected!</p>);

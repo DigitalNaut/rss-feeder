@@ -21,7 +21,7 @@ function Subscriptions(props) {
 
   return (
     <div id="subscriptions" className={style.subscriptions}>
-      <h1 className={style.header}>Subscriptions</h1>
+      <h2 className={style.header}>Subscriptions</h2>
       <div className={style.subslist}>{subscriptions}</div>
     </div>
   );
