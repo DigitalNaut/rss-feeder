@@ -4,15 +4,18 @@ import * as React from "react";
 import Article from "../Article/Article.jsx";
 import rssFetcher from "../../common/RSSFetcher.jsx";
 
-// content: "Qui id incididunt est excepteur."
-// contentSnippet: "Qui id incididunt est excepteur."
-// creator: "John Smith"
-// "dc:creator": "John Smith"
-// guid: "http://example.com/test/1601906940"
-// isoDate: "2020-10-05T14:09:00.000Z"
-// link: "http://example.com/test/1601906940"
-// pubDate: "Mon, 05 Oct 2020 14:09:00 GMT"
-// title: "Lorem ipsum 2020-10-05T14:09:00Z"
+/* Fetch result sample:
+----------------------------
+  content: "Qui id incididunt est excepteur."
+  contentSnippet: "Qui id incididunt est excepteur."
+  creator: "John Smith"
+  "dc:creator": "John Smith"
+  guid: "http://example.com/test/1601906940"
+  isoDate: "2020-10-05T14:09:00.000Z"
+  link: "http://example.com/test/1601906940"
+  pubDate: "Mon, 05 Oct 2020 14:09:00 GMT"
+  title: "Lorem ipsum 2020-10-05T14:09:00Z"
+ */
 
 function Feed(props) {
   let [articles, setArticles] = React.useState([]);
