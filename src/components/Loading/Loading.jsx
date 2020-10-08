@@ -1,7 +1,9 @@
-import style from "./Loading.jsx";
+import style from "./Loading.scss";
 
 import * as React from "react";
 
 function Loading(props) {
-  return <h2>Loading...</h2>;
+  return props.showComponent && <div className={style.main} >Loading...</div>;
 }
+
+export default Loading;

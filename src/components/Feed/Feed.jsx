@@ -3,6 +3,7 @@ import * as React from "react";
 
 import Article from "../Article/Article.jsx";
 import rssFetcher from "../../common/RSSFetcher.jsx";
+import Loading from "../Loading/Loading.jsx";
 
 /* Fetch result sample:
 ----------------------------
@@ -18,6 +19,7 @@ import rssFetcher from "../../common/RSSFetcher.jsx";
  */
 
 function Feed(props) {
+  let [isLoadingArticles, setIsLoadingArticles] = React.useState(false);
   let [articles, setArticles] = React.useState([]);
 
   function createArticle(key, title, content) {
@@ -30,25 +32,32 @@ function Feed(props) {
 
   React.useEffect(() => {
     if (props.rssUrl) {
+      setIsLoadingArticles(true);
+
       rssFetcher(props.rssUrl)
         .then((content) => {
           let articles = content.items.map((article, index) => {
             return createArticle(index, article.title, article.contentSnippet);
           });
           setArticles(articles);
+          setIsLoadingArticles(false);
         })
 
         .catch((error) => {
           console.log("Server responded with:", error.message);
           setArticles(<p>Error retrieving articles!</p>);
+          setIsLoadingArticles(false);
         });
     } else setArticles(<p>No subscription selected!</p>);
-  }, [props, props.rssUrl]);
+  }, [props.rssUrl]);
 
   return (
     <div id="feed" className={style.feed}>
-      <h1 className={style.header}>Feed</h1>
-      <div className={style.articlesList}>{articles}</div>
+      <div className={style.headerSection}>
+        <h1 className={style.header}>Feed</h1>
+        <Loading showComponent={isLoadingArticles} />
+      </div>
+      <div className={style.articlesList}>{!isLoadingArticles && articles}</div>
     </div>
   );
 }
