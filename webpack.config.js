@@ -1,8 +1,8 @@
 const path = require("path");
 
-const isDevelopment = env.isDevelopment == 'true' ? true : false;
-
 module.exports = (env) => {
+  const isDevelopment = env.isDevelopment == 'true' ? true : false;
+
   return {
     mode: "production",
     entry: "./src/index.js",
