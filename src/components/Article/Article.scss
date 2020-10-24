@@ -1,13 +1,104 @@
-.article {
-  color: white;
-  background-color: orange;
-  padding: 5px;
-  margin: 5px;
+@import "Main/App.scss";
+$externalImg: url("../../../public/ExternalLinkIcon.svg");
+
+$minArticleHeight: 150px;
+$containerPadding: 16px;
+
+.container {
+  width: auto;
+  margin: 8px 0 8px 0;
+  padding: $containerPadding;
   display: flex;
+  min-height: $minArticleHeight;
+  color: $Text;
+  background-color: $Box;
   flex-direction: column;
+  justify-content: center;
+
+  @include shadowRelieve();
+}
+
+.button {
+  text-decoration: none;
 }
 
 .header {
-  padding: 0px;
-  margin: 5px;
+  padding: 15px;
+  margin: 0px;
+
+  p {
+    margin: 0px;
+  }
+}
+
+.subheader {
+  font-size: 80%;
+}
+
+.image {
+  max-width: 200px;
+  min-height: $minArticleHeight;
+  object-fit: cover;
+}
+
+.video {
+  min-height: $minArticleHeight;
+  max-width: 50%;
+  color: $Accent;
+}
+
+.audio {
+  width: 100%;
+  color: $Accent;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.main {
+  flex-direction: column;
+  overflow-x: auto;
+  width: inherit;
+  padding: $Padding;
+  margin: 0px;
+  background-color: $Box;
+  border-radius: 3px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  font-size: 10%;
+  color: darken($Text, 50%);
+  align-content: center;
+  justify-content: space-around;
+}
+
+.container:hover {
+  background-color: lighten($Box, 3%);
+}
+
+.container a {
+  color: $Text;
+}
+.container a:visited {
+  color: darken($Text, 5%);
+}
+.container a:hover {
+  color: $Accent;
+  background-color: $Box;
+}
+.container > a:hover {
+  background-image: $externalImg;
+  background-size: 32px 32px;
+  background-position: right $Padding center;
+  background-repeat: no-repeat;
+  padding-right: 32px + $Padding * 2;
+}
+.container a:active {
+  color: lighten($Text, 10%);
+  background-color: lighten($Box, 10%);
 }

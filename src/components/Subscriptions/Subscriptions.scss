@@ -1,26 +1,56 @@
-.subscriptions {
-  background-color: green;
-  width: 30%;
+@import "Main/App.scss";
+
+.container {
+  width: 20%;
   height: inherit;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  padding: 0 $Padding / 2 0 $Padding;
+}
+
+.homeButtom {
+  color: $Text;
+  background-color: $Background;
+  border: none;
+}
+.homeButtom:hover {
+  color: white;
+  background-color: $Background;
 }
 
 .header {
-  color: white;
-  margin: 0px;
-
+  color: lighten($Accent, 45%);
+  margin: 10px;
   align-self: center;
+  padding: auto 0 0 0px;
+  font-size: 1em;
 }
 
-.subsList {
+.list {
   display: flex;
   flex-wrap: wrap;
+  @include shadowRelieve();
 }
 
-.subscriptionLink {
+.link {
   margin: 0px;
   border: 0px;
   width: 100%;
+  height: 40px;
+  color: $Text;
+  background-color: $Box;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: $Accent !important;
+  color: $Background !important;
+  border-radius: 3px;
+}
+
+.container button:hover {
+  color: lighten($Text, 15%);
+  background-color: lighten($Box, 5%);
 }

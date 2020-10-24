@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "webpack --watch --mode development --env.isDevelopment=true",
+    "start": "npm run dev",
     "serve": "webpack-dev-server && start http://localhost:8080/",
     "build": "webpack --mode production --env.isDevelopment=false",
     "deploy": "web-ext build -i ./src ./webpack.config.js ./gitignore ./package-lock.json ./babel.config.json ./index-dev.html"
@@ -26,7 +27,9 @@
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
+    "animejs": "^3.2.1",
     "babel-loader": "^8.1.0",
+    "html-react-parser": "^0.14.0",
     "rss-parser": "^3.9.0"
   },
   "devDependencies": {
@@ -39,6 +42,7 @@
     "sass": "^1.26.11",
     "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
+    "svg-url-loader": "^6.0.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"

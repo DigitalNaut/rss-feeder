@@ -1,0 +1,22 @@
+@import 'Main/App.scss';
+
+.container {
+  background-color: $Background;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+
+  margin: $Padding $Padding $Padding $Padding / 2;
+  padding: 0 $Padding 0 $Padding / 2;
+}
+
+.heroPhoto {
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+  flex-shrink: 0;
+}
