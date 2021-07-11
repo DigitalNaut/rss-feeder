@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack --watch --mode development --env.isDevelopment=true",
     "start": "npm run dev",
-    "serve": "webpack-dev-server && start http://localhost:8080/",
+    "serve": "webpack-dev-server --mode development --env.isDevelopment=true && start http://localhost:8080/",
     "build": "webpack --mode production --env.isDevelopment=false",
     "deploy": "web-ext build -i ./src ./webpack.config.js ./gitignore ./package-lock.json ./babel.config.json ./index-dev.html"
   },
